@@ -136,6 +136,16 @@ body {
   .container {
     padding: 16px 12px 50px;
   }
+
+  .cover {
+    height: 42vh;
+    margin-bottom: 20px;
+  }
+
+  .cover img {
+    height: 100%;
+    object-fit: cover;
+  }
   
   .post {
     padding: 18px 16px;
