@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rozmowa z Bogiem</title>
+  <meta name="description" content="Osobiste wpisy i rozmowy.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky">
+    <div class="stars"></div>
+  </div>
+
+  <div class="container">
+    <div class="cover">
+      <img src="cover.png" alt="Rozmowa z Bogiem">
+    </div>
+
+    <div class="posts" id="posts">
+      <!-- Wpisy będą ładowane tutaj z posts.json -->
+    </div>
+
+    <div class="footer">
+      Rozmowa z Bogiem
+    </div>
+  </div>
+
+  <script>
+    async function loadPosts() {
+      const container = document.getElementById('posts');
+      
+      try {
+        const response = await fetch('posts.json');
+        const posts = await response.json();
+
+        if (!posts || posts.length === 0) {
+          container.innerHTML = '<div class="empty">Na razie cisza...</div>';
+          return;
+        }
+
+        // Sortujemy od najnowszych (pierwszy w pliku = najnowszy)
+        // Jeśli chcesz odwrotnie, zamień na .reverse()
+        
+        container.innerHTML = posts.map(post => `
+          <article class="post">
+            <div class="post-date">${post.date || ''}</div>
+            ${post.title ? `<h2 class="post-title">${post.title}</h2>` : ''}
+            <div class="post-content">${post.content || ''}</div>
+          </article>
+        `).join('');
+        
+      } catch (err) {
+        container.innerHTML = '<div class="empty">Nie udało się wczytać wpisów.</div>';
+        console.error(err);
+      }
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>

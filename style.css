@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #0a0a12;
+  color: #e8e8f0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Nocne niebo z gwiazdami */
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  z-index: -2;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 230px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 370px 50px, #fff, transparent),
+    radial-gradient(2px 2px at 450px 180px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 520px 90px, #fff, transparent),
+    radial-gradient(2px 2px at 600px 130px, rgba(255,255,255,0.6), transparent);
+  background-repeat: repeat;
+  background-size: 650px 200px;
+  animation: twinkle 8s ease-in-out infinite alternate;
+  opacity: 0.7;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  100% { opacity: 0.9; }
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* Obrazek na górze */
+.cover {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  margin-bottom: 32px;
+}
+
+.cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Wpisy */
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.post {
+  background: rgba(20, 24, 40, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 22px 20px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.post:hover {
+  background: rgba(28, 34, 55, 0.85);
+  transform: translateY(-2px);
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: #8b9bb4;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.post-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f0f4ff;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  font-size: 1.05rem;
+  color: #d0d6e8;
+  white-space: pre-wrap;
+}
+
+/* Pusta lista */
+.empty {
+  text-align: center;
+  color: #7a8499;
+  padding: 40px 20px;
+  font-size: 1rem;
+}
+
+/* Stopka */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.8rem;
+  color: #5a6478;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 12px 50px;
+  }
+  
+  .post {
+    padding: 18px 16px;
+  }
+  
+  .post-title {
+    font-size: 1.1rem;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+  }
+}
