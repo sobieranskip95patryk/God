@@ -1,0 +1,5 @@
+{
+    "date": "1 czerwca 2025",
+    "title": "",
+    "content": "Nie zawsze potrzebuję odpowiedzi. Czasami wystarczy, że mogę zadać pytanie i wiedzieć, że nie jestem z nim sam."
+  }
